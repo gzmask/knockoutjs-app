@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <script type='text/javascript' src='bower_components/jquery/dist/jquery.min.js'></script>
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
     <script type='text/javascript' src='bower_components/knockout/dist/knockout.debug.js'></script>
     <script type='text/javascript' src='states.js'></script>
     <script type='text/javascript' src='routes.js'></script>
+    <script type='text/javascript' src='drivers.js'></script>
   </head>
   <body>
     <div class="row">
@@ -16,8 +19,27 @@
       <div class="col-md-2 col-md-offset-1">ROUTE</div>
     </div>
     <div class="row">
-      <select class="col-md-2 col-md-offset-1" data-bind="options: Markets, optionsText: 'name', optionsValue: 'value'"></select>
-      <select class="col-md-2 col-md-offset-1" data-bind="options: Routes, optionsText: 'name', optionsValue: 'value'"></select>
+      <select class="col-md-2 col-md-offset-1" data-bind="
+        options: Markets, 
+        optionsText: 'name', 
+        optionsValue: 'value', 
+        optionsCaption: 'Please select your market'"></select>
+      <select class="col-md-2 col-md-offset-1" data-bind="
+        options: Routes, 
+        optionsText: 'name', 
+        optionsValue: 'value',
+        optionsCaption: 'Please select your route'"></select>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-1">DRIVER</div>
+      <div class="col-md-2 col-md-offset-1">ROUTE DATE</div>
+    </div>
+    <div class="row">
+      <select class="col-md-2 col-md-offset-1" data-bind="
+        options: Drivers, 
+        optionsText: 'name', 
+        optionsValue: 'value',
+        optionsCaption: 'Please select your driver'"></select>
     </div>
     <script type='text/javascript' src='app.js'></script>
   </body>
