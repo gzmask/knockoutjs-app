@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Knockoutjs App</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script type='text/javascript' src='bower_components/jquery/dist/jquery.min.js'></script>
+    <script type='text/javascript' src='bower_components/knockout/dist/knockout.debug.js'></script>
+    <script type='text/javascript' src='states.js'></script>
+    <script type='text/javascript' src='routes.js'></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-1">MARKET</div>
+      <div class="col-md-2 col-md-offset-1">ROUTE</div>
+    </div>
+    <div class="row">
+      <select class="col-md-2 col-md-offset-1" data-bind="options: Markets, optionsText: 'name', optionsValue: 'value'"></select>
+      <select class="col-md-2 col-md-offset-1" data-bind="options: Routes, optionsText: 'name', optionsValue: 'value'"></select>
+    </div>
+    <script type='text/javascript' src='app.js'></script>
+  </body>
+</html>
