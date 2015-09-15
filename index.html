@@ -6,11 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <script type='text/javascript' src='bower_components/jquery/dist/jquery.min.js'></script>
-    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/ko-calendar/dist/ko-calendar.min.css">
-    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
     <script type='text/javascript' src='bower_components/knockout/dist/knockout.debug.js'></script>
-    <script type="text/javascript" src="bower_components/ko-calendar/dist/ko-calendar.min.js"></script>
     <script type='text/javascript' src='states.js'></script>
     <script type='text/javascript' src='routes.js'></script>
     <script type='text/javascript' src='drivers.js'></script>
@@ -23,13 +19,13 @@
     </div>
     <div class="row">
       <select class="col-md-2 col-md-offset-1" data-bind="
-        options: Markets, 
-        optionsText: 'name', 
-        optionsValue: 'value', 
+        options: markets,
+        optionsText: 'name',
+        optionsValue: 'value',
         optionsCaption: 'Please select your market'"></select>
       <select class="col-md-2 col-md-offset-1" data-bind="
-        options: Routes, 
-        optionsText: 'name', 
+        options: routes,
+        optionsText: 'name',
         optionsValue: 'value',
         optionsCaption: 'Please select your route'"></select>
     </div>
@@ -39,11 +35,17 @@
     </div>
     <div class="row">
       <select class="col-md-2 col-md-offset-1" data-bind="
-        options: Drivers, 
-        optionsText: 'name', 
+        options: drivers,
+        optionsText: 'name',
         optionsValue: 'value',
         optionsCaption: 'Please select your driver'"></select>
-      <div data-bind="component: { name: 'calendar', params: opts }"></div>
+      <div class="col-md-2 col-md-offset-1">
+        <table data-bind="foreach: weeks">
+          <tr data-bind="foreach: days">
+            <td><input type="checkbox" data-bind="checked:$data"></td>
+          </tr>
+        </table>
+      </div>
     </div>
   </body>
 </html>
