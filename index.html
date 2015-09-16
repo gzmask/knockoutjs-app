@@ -14,32 +14,33 @@
   </head>
   <body>
     <div class="row">
-      <div class="col-md-2 col-md-offset-1">MARKET</div>
-      <div class="col-md-2 col-md-offset-1">ROUTE</div>
+      <div class="col-md-3 col-md-offset-1">MARKET</div>
+      <div class="col-md-3 col-md-offset-1">ROUTE</div>
     </div>
     <div class="row">
-      <select class="col-md-2 col-md-offset-1" data-bind="
+      <select class="col-md-3 col-md-offset-1" data-bind="
         options: markets,
         optionsText: 'name',
         optionsValue: 'value',
         optionsCaption: 'Please select your market'"></select>
-      <select class="col-md-2 col-md-offset-1" data-bind="
+      <select class="col-md-3 col-md-offset-1" data-bind="
         options: routes,
         optionsText: 'name',
         optionsValue: 'value',
         optionsCaption: 'Please select your route'"></select>
     </div>
     <div class="row">
-      <div class="col-md-2 col-md-offset-1">DRIVER</div>
-      <div class="col-md-2 col-md-offset-1">ROUTE DATE</div>
+      <div class="col-md-3 col-md-offset-1">DRIVER</div>
+      <div class="col-md-3 col-md-offset-1">ROUTE DATE</div>
     </div>
     <div class="row">
-      <select class="col-md-2 col-md-offset-1" data-bind="
+      <select class="col-md-3 col-md-offset-1" data-bind="
         options: drivers,
         optionsText: 'name',
         optionsValue: 'value',
         optionsCaption: 'Please select your driver'"></select>
-      <div class="col-md-2 col-md-offset-1">
+      <div class="col-md-3 col-md-offset-1">
+        <span data-bind="text: year"></span> &nbsp;&nbsp;&nbsp;&nbsp; <span data-bind="text: month"></span><br />
         <table data-bind="foreach: weeks">
           <tr data-bind="foreach: days">
             <td><input type="checkbox" data-bind="checked:$data"></td>
