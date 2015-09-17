@@ -48,7 +48,7 @@ function changeMonth(year, month, weeks/*the weeks of a month in an observalbe a
   //unessary: weeks()[0].days.valueHasMutated();
 }
 
-//view model class
+//The knockout view model class
 var VM = function(){
   var self = this;
   self.markets=states;
@@ -107,11 +107,12 @@ var VM = function(){
       changeMonth(this.year(), this.month(), this.weeks);};
 };
 
-
+//main binding on ready
 $(document).ready(function() {
   var vm = new VM();
   ko.applyBindings(vm);
   var d = new Date();
-  changeMonth(d.getYear(), d.getDate(), vm.weeks);
-
+  vm.month(d.getMonth());
+  vm.year(d.getFullYear());
+  changeMonth(d.getFullYear(), d.getMonth(), vm.weeks);
 });
