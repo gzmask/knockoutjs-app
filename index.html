@@ -43,7 +43,7 @@
         <span data-bind="text: year"></span> &nbsp;&nbsp;&nbsp;&nbsp; <span data-bind="text: month"></span><br />
         <table data-bind="foreach: weeks">
           <tr data-bind="foreach: days">
-            <td><input type="checkbox" data-bind="checked:$data"></td>
+            <td><input type="checkbox" data-bind="checked:$data.checked"></td>
           </tr>
         </table>
       </div>
