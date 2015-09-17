@@ -19,7 +19,7 @@ $(document).ready(function() {
       drivers,
     weeks: 
       //nested array representing a month: 5 weeks for a month, 7 days for a week.
-      Array.apply(null, Array(5)).map(function(){return new Week(Array.apply(null, Array(7)).map(function(){return new Day(false, false)}))}),
+      ko.observableArray(Array.apply(null, Array(5)).map(function(){return new Week(Array.apply(null, Array(7)).map(function(){return new Day(false, false)}))})),
     month:
       ko.observable(9),
     year:
@@ -27,7 +27,6 @@ $(document).ready(function() {
   };
 
   ko.applyBindings(vm);
-  vm.weeks[0].days.replace(vm.weeks[0].days()[0], new Day(true,true));
-  console.log(vm.weeks[0].days());
-  console.log(vm.weeks[0]);
+  vm.weeks()[0].days()[0] = new Day(true,true);
+  vm.weeks()[0].days.valueHasMutated();
 });
