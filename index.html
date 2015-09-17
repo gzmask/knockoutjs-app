@@ -40,17 +40,22 @@
         optionsValue: 'value',
         optionsCaption: 'Please select your driver'"></select>
       <div class="col-md-3 col-md-offset-1">
-        <span data-bind="click:decreaseCurrentMonth"><</span>
-        <span data-bind="text: month"></span>
-        <span data-bind="click:increaseCurrentMonth">></span> 
+        <button data-bind="click:decreaseCurrentMonth"><</button>
+        <span data-bind="text: monthWord"></span>
+        <button data-bind="click:increaseCurrentMonth">></button> 
         &nbsp;&nbsp;&nbsp;&nbsp; 
-        <span data-bind="click:decreaseCurrentYear"><</span>
+        <button data-bind="click:decreaseCurrentYear"><</button>
         <span data-bind="text: year"></span>
-        <span data-bind="click:increaseCurrentYear">></span>
+        <button data-bind="click:increaseCurrentYear">></button>
         <br />
         <table data-bind="foreach: weeks">
           <tr data-bind="foreach: days">
-            <td data-bind="visible: $data.display" style="padding: 5px;"><input type="checkbox" data-bind="checked:$data.checked"><span data-bind="text: $data.dayofmonth"></span></td>
+            <td>
+              <div data-bind="visible: $data.display" style="padding: 5px;">
+                <input type="checkbox" data-bind="checked:$data.checked">
+                <span data-bind="text: $data.dayofmonth"></span>
+              </div>
+            </td>
           </tr>
         </table>
       </div>
