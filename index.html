@@ -55,7 +55,8 @@
         <br />
         <table>
           <tr data-bind="foreach: weekThs">
-            <th><button style="background-color: #156CE6; color: #ffffff; margin: 5px 10px 0px 10px;" data-bind="click: function(){$parent.weeklyRepeatRoute($index())}, text: $data"></button</th> 
+            <th><button style="background-color: #156CE6; color: #ffffff; margin: 5px 10px 0px 10px;" 
+                data-bind="click: function(){$parent.weeklyRepeatRoute($index())}, text: $data"></button</th> 
           </tr>
           <tbody data-bind="foreach: weeks">
             <tr data-bind="foreach: days">

@@ -16,16 +16,22 @@ function changeMonth(year, month, weeks/*the weeks of a month in an observalbe a
   //initialize the month arrays
   for(var i = 0; i< 7; i++) {
     weeks[0].days()[i].display(false);
+    weeks[0].days()[i].checked(false);
     weeks[0].days()[i].dayofmonth(null);
     weeks[1].days()[i].display(false);
+    weeks[1].days()[i].checked(false);
     weeks[1].days()[i].dayofmonth(null);
     weeks[2].days()[i].display(false);
+    weeks[2].days()[i].checked(false);
     weeks[2].days()[i].dayofmonth(null);
     weeks[3].days()[i].display(false);
+    weeks[3].days()[i].checked(false);
     weeks[3].days()[i].dayofmonth(null);
     weeks[4].days()[i].display(false);
+    weeks[4].days()[i].checked(false);
     weeks[4].days()[i].dayofmonth(null);
     weeks[5].days()[i].display(false);
+    weeks[5].days()[i].checked(false);
     weeks[5].days()[i].dayofmonth(null);}
 
   //get first day of the month and set counters
@@ -80,28 +86,40 @@ var VM = function(){
     if (self.weeks[0].days()[day].checked() &&
         self.weeks[1].days()[day].checked() &&
         self.weeks[2].days()[day].checked() &&
-        self.weeks[3].days()[day].checked())
-    { 
+        self.weeks[3].days()[day].checked()) { 
     for(var i = 0; i<6; i++) 
-      self.weeks[i].days()[day].checked(false);}
-    else {
+      self.weeks[i].days()[day].checked(false);
+    } else {
     for(var i = 0; i<6; i++) 
       self.weeks[i].days()[day].checked(true);}
   };
 
   //AJAX using Jquery
   self.ajaxPost = function(){
-    var data = { 
-      market: $("#marketsID option:selected").text(),
-      routes: $("#routesID option:selected").text(),
-      drivers: $("#driversID option:selected").text(),
+    var data = {
+      marketID: $("#marketsID option:selected").val(),
+      routeID: $("#routesID option:selected").val(),
+      driverID: $("#driversID option:selected").val(),
       year: self.year(),
-      month: self.monthWord() 
+      month: self.monthWord(),
+      days: 
+        self.weeks[0].days().concat( 
+            self.weeks[1].days(), 
+            self.weeks[2].days(),
+            self.weeks[3].days(),
+            self.weeks[4].days(),
+            self.weeks[5].days()).
+        filter(function(day){ 
+          return day.checked() && (day.dayofmonth() !== null); 
+        }).map(function(day){
+          return day.dayofmonth();
+        })
     };
-    console.log('Posting Data:');
+    console.log("Data posted:"); 
     console.log(data);
-    $.post( "ajax/test.html", data).done(function( data ) {
-      console.log("Data posted: " + data);});
+    $.post( "http://posttestserver.com/post.php", data).done(function( data ) {
+      console.log("Response:" + data);
+    });
   }
 
   //button events for changing current month and year
